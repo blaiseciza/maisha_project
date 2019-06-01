@@ -1,0 +1,5 @@
+-1- Calcul Débit			  
+$publication = mysql_query('SELECT SUM(debit_journal) AS nbre_site FROM '.$prefix.'journal WHERE classe_journal="Goma"');
+$nbre_recours = mysql_fetch_array($publication);
+if ($nbre_recours['nbre_site'] == '') 
+{$debit=0;}else $debit=$nbre_recours['nbre_site'];

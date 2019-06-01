@@ -10,21 +10,8 @@ class Maladies extends StatefulWidget {
 }
 
 class _MaladiesState extends State<Maladies> {
-  //Future<SharedPreferences> _sPrefs=SharedPreferences.getInstance();
-  // List<String> listmemoview;
-  // List<String> listgetmemoview;
-  // List<String> listmemonbre;
-  // List<String> listgetmemonbre;
-  // List<String> listmemodetail;
-  // List<String> listgetmemodetail;
-  // String viewKey="listview";
-  // String nbreKey="listnbre";
-  // String detailKey="listdetail";
-  //data memory
-  //MyPreferences _myPreferences;
-//connection to json
+ 
 Future<List> _charger() async{
-  //final response=await http.post("http://192.168.43.156/maishaCount/connMobile/maladie.php",
   final response=await http.post(PubCon.cheminPhp+"maladie.php",
   body:{
     
@@ -44,18 +31,14 @@ Future<List> _charger() async{
     //clearItems();
     setState(() {
     for(int h=0;h<datauser.length;h++){
-      
-        var id=datauser[h]['id_cause'].toString();
-        var item=datauser[h]['designation_cause'].toString();
-        var nbre=datauser[h]['nbre_dec'].toString();
-        var detail=datauser[h]['detail_cause'].toString();
-     _view.add(item);
+     _view.add(datauser[h]['designation_cause'].toString());
      //addStrings(item,viewKey, listmemoview);
-     _nbre.add(nbre); 
+     _nbre.add(datauser[h]['nbre_dec'].toString()); 
      //addStrings(nbre,nbreKey, listmemonbre);
-     _detail.add(detail); 
+     _detail.add(datauser[h]['detail_cause'].toString()); 
      //addStrings(detail,detailKey, listmemodetail);
-     _idmaladie.add(id);
+     _idmaladie.add(datauser[h]['id_cause'].toString());
+     
      }
      
     });

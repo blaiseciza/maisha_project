@@ -34,6 +34,7 @@ class _SecondScreenState extends State<SecondScreen> {
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(child: ListTile(
+              
               title: Text("${widget.value.nbrecom}",textAlign: TextAlign.center,),
             subtitle: Text('personnes ont reagit'),
             )),
